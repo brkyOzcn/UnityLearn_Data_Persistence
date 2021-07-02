@@ -11,6 +11,7 @@ using UnityEditor;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] InputField inputField;
 
     void Start()
     {
@@ -19,11 +20,12 @@ public class Menu : MonoBehaviour
 
     public void StartTheGame()
     {
+        DataHandler.instance.playerName = inputField.text;
         SceneManager.LoadScene(1);
     }
 
     public void Exit()
-    {
+    {       
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
