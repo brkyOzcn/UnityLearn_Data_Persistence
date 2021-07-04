@@ -12,10 +12,11 @@ using UnityEditor;
 public class Menu : MonoBehaviour
 {
     [SerializeField] InputField inputField;
+    [SerializeField] Text bestScoreMenu;
 
     void Start()
     {
-        
+        bestScoreMenu.text = "Best Score : " + DataHandler.instance.bestScorePlayerName + " : " + DataHandler.instance.bestScore;
     }
 
     public void StartTheGame()

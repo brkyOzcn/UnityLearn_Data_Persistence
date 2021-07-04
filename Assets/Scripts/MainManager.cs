@@ -38,7 +38,7 @@ public class MainManager : MonoBehaviour
             }
         }
 
-        bestScoreText.text = "Best Score : " + DataHandler.instance.playerName + " :" + DataHandler.instance.bestScore;
+        bestScoreText.text = "Best Score : " + DataHandler.instance.bestScorePlayerName + " : " + DataHandler.instance.bestScore;
     }
 
     private void Update()

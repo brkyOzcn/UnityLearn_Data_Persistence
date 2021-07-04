@@ -8,6 +8,7 @@ public class DataHandler : MonoBehaviour
     public static DataHandler instance;
     public string playerName;
     public int bestScore = 0;
+    public string bestScorePlayerName;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class DataHandler : MonoBehaviour
         if (score >= bestScore)
         {
             bestScore = score;
+            bestScorePlayerName = playerName;
         }
 
     }
@@ -42,7 +44,7 @@ public class DataHandler : MonoBehaviour
     public void SaveAll()
     {
         SaveData data = new SaveData();
-        data.playerName = playerName;
+        data.playerName = bestScorePlayerName;
         data.bestScore = bestScore;
 
         string json = JsonUtility.ToJson(data);
@@ -58,7 +60,7 @@ public class DataHandler : MonoBehaviour
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
 
-            playerName = data.playerName;
+            bestScorePlayerName = data.playerName;
             bestScore = data.bestScore;
         }
     }
